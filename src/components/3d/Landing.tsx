@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
+import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,8 +8,14 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Head3D } from "./Head3D";
 
-function MouseFollower({ children, yaw = 1, pitch = 1 }) {
-  const ref = useRef();
+type MouseFollowerProps = {
+  children: ReactNode;
+  yaw?: number;
+  pitch?: number;
+};
+
+function MouseFollower({ children, yaw = 1, pitch = 1 }: MouseFollowerProps) {
+  const ref = useRef<THREE.Group>(null);
   useFrame(({ pointer }) => {
     if (!ref.current) return;
     ref.current.rotation.y = pointer.x * Math.PI * yaw;
@@ -18,13 +25,11 @@ function MouseFollower({ children, yaw = 1, pitch = 1 }) {
 }
 
 export default function Landing() {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [videoFinished, setVideoFinished] = useState(false);
   const [startVideo, setStartVideo] = useState(false);
 
   return (
     <div className="landing-container">
-
       {!startVideo && (
         <motion.img
           key="fadeout-image"

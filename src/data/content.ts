@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "2",
-    title: "Nihongo With Moeno",
+    title: "Nihongo With Moeno Online School",
     description:
       "Student/Teacher platform. Teachers can login and manage their students, Heygen Video tutorials translated into the teachers native language. Students can login and schedual classes",
     tags: ["Next.js", "Firebase", "Stripe"],
@@ -60,14 +60,14 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "3",
-    title: "AI Image Generator",
+    title: "AI Dialect Translator",
     description:
       "An application that utilizes machine learning to generate custom images based on text prompts. Integrated with various AI models to provide diverse style options.",
-    tags: ["Python", "TensorFlow", "React", "FastAPI"],
+    tags: ["Next.js", "Typescript", "Stripe", "Firebase"],
     imageUrl:
-      "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://github.com/fixmylifedesigns/reactjs-portfolio/blob/master/src/images/projects/translate.png?raw=true",
     demoUrl: "https://project-demo.com",
-    githubUrl: "https://github.com/yourusername/project",
+    githubUrl: "https://github.com/fixmylifedesigns/anydialectv2",
   },
 ];
 

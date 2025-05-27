@@ -6,9 +6,21 @@ Command: npx gltfjsx@6.5.3 ./public/models/shadedHead/model.glb
 import React from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
+import { GLTF } from 'three-stdlib';
+
+type GLTFResult = GLTF & {
+  nodes: {
+    model: THREE.Mesh
+  }
+  materials: {
+    CustomMaterial: THREE.Material
+  }
+}
+
 
 export function Head3D(props: any) {
-  const { nodes, materials } = useGLTF("/models/shadedHead/model.glb ");
+
+const { nodes, materials } = useGLTF("/models/shadedHead/model.glb") as GLTFResult;
 
   const insideMaterial = new THREE.MeshStandardMaterial({
     color: 0x9ffaff,
