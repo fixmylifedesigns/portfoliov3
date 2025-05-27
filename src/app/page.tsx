@@ -5,6 +5,7 @@ import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
 import Achievements from '@/components/sections/Achievements';
 import Contact from '@/components/sections/Contact';
+import ElevenLabsAgent from "@/components/ElevenLabsAgent";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Projects />
         <Achievements />
         <Contact />
+        {process.env.NEXT_PUBLIC_ELEVEN_LABS && <ElevenLabsAgent />}
       </main>
       <Footer />
     </div>

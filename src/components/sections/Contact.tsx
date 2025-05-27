@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { ContactFormData } from '../../types';
-import { Mail, MapPin, Send, Loader2 } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { ContactFormData } from "../../types";
+import { Mail, MapPin, Send, Loader2 } from "lucide-react";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
 
   const {
     register,
@@ -20,25 +20,49 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitError('');
-    
+    setSubmitError("");
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Form submitted:', data);
+      const response: any = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      });
+
+      const res = await response.json();
+
+      if (!response.ok) {
+        throw new Error(res.error || "Failed to send message");
+      }
+
       setSubmitSuccess(true);
       reset();
-    } catch (error) {
-      setSubmitError('There was an error submitting the form. Please try again.');
-      console.error('Error submitting form:', error);
+
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 3000);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setSubmitError(error.message);
+      } else {
+        setSubmitError("An unknown error occurred.");
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-b from-gray-900 to-black"
+    >
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,10 +71,13 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Get In Touch
+          </h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-6"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out and I'll get back to you as soon as possible.
+            Have a project in mind or want to collaborate? Feel free to reach
+            out and I'll get back to you as soon as possible.
           </p>
         </motion.div>
 
@@ -62,38 +89,50 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-            
+            <h3 className="text-2xl font-bold text-white mb-6">
+              Contact Information
+            </h3>
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-cyan-500/20 p-3 rounded-md text-cyan-400">
                   <Mail size={24} />
                 </div>
                 <div className="ml-4">
-                  <h4 className="text-xl font-semibold text-white mb-1">Email</h4>
-                  <a href="mailto:contact@duranirving.com" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-white mb-1">
+                    Email
+                  </h4>
+                  <a
+                    href="mailto:contact@duranirving.com"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                  >
                     contact@duranirving.com
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-cyan-500/20 p-3 rounded-md text-cyan-400">
                   <MapPin size={24} />
                 </div>
                 <div className="ml-4">
-                  <h4 className="text-xl font-semibold text-white mb-1">Location</h4>
+                  <h4 className="text-xl font-semibold text-white mb-1">
+                    Location
+                  </h4>
                   <p className="text-gray-400">Brooklyn, NY</p>
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-12">
-              <h4 className="text-xl font-semibold text-white mb-4">Let's Connect</h4>
+              <h4 className="text-xl font-semibold text-white mb-4">
+                Let's Connect
+              </h4>
               <p className="text-gray-400 mb-6">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of your vision.
               </p>
-              
+
               <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
                 <blockquote className="text-gray-300 italic">
                   "The best way to predict the future is to create it."
@@ -110,17 +149,22 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-            
+            <h3 className="text-2xl font-bold text-white mb-6">
+              Send Me a Message
+            </h3>
+
             {submitSuccess ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="bg-cyan-500/20 border border-cyan-500/50 rounded-lg p-6 text-center"
               >
-                <h4 className="text-xl font-semibold text-white mb-2">Message Sent!</h4>
+                <h4 className="text-xl font-semibold text-white mb-2">
+                  Message Sent!
+                </h4>
                 <p className="text-gray-300 mb-4">
-                  Thank you for reaching out. I'll get back to you as soon as possible.
+                  Thank you for reaching out. I'll get back to you as soon as
+                  possible.
                 </p>
                 <button
                   onClick={() => setSubmitSuccess(false)}
@@ -133,22 +177,24 @@ const Contact = () => {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-300 mb-2">
-                    Name
+                    Name/Company
                   </label>
                   <input
                     type="text"
                     id="name"
                     className={`w-full bg-gray-800/50 border ${
-                      errors.name ? 'border-red-500' : 'border-gray-700'
+                      errors.name ? "border-red-500" : "border-gray-700"
                     } rounded-md px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors duration-300`}
-                    placeholder="Irving Duran"
-                    {...register('name', { required: 'Name is required' })}
+                    placeholder="Your name or company"
+                    {...register("name", { required: "Name is required" })}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-gray-300 mb-2">
                     Email
@@ -157,22 +203,24 @@ const Contact = () => {
                     type="email"
                     id="email"
                     className={`w-full bg-gray-800/50 border ${
-                      errors.email ? 'border-red-500' : 'border-gray-700'
+                      errors.email ? "border-red-500" : "border-gray-700"
                     } rounded-md px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors duration-300`}
                     placeholder="Your email"
-                    {...register('email', {
-                      required: 'Email is required',
+                    {...register("email", {
+                      required: "Email is required",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address',
+                        message: "Invalid email address",
                       },
                     })}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-gray-300 mb-2">
                     Message
@@ -181,22 +229,26 @@ const Contact = () => {
                     id="message"
                     rows={5}
                     className={`w-full bg-gray-800/50 border ${
-                      errors.message ? 'border-red-500' : 'border-gray-700'
+                      errors.message ? "border-red-500" : "border-gray-700"
                     } rounded-md px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors duration-300`}
                     placeholder="Your message"
-                    {...register('message', { required: 'Message is required' })}
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
                   ></textarea>
                   {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
                   )}
                 </div>
-                
+
                 {submitError && (
                   <div className="bg-red-500/20 border border-red-500/50 rounded-md p-3">
                     <p className="text-red-400 text-sm">{submitError}</p>
                   </div>
                 )}
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}

@@ -29,7 +29,7 @@ const Achievements = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Achievements</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Journey</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-6"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Key milestones and accomplishments throughout my professional journey.

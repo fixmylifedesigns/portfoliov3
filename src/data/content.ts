@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Typescript", "Stripe", "Firebase"],
     imageUrl:
       "https://github.com/fixmylifedesigns/reactjs-portfolio/blob/master/src/images/projects/translate.png?raw=true",
-    demoUrl: "https://project-demo.com",
+    demoUrl: "https://anydialect.duranirving.com/marketing",
     githubUrl: "https://github.com/fixmylifedesigns/anydialectv2",
   },
 ];

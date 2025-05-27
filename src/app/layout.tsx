@@ -20,16 +20,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Irving Duran' }],
   creator: 'Irving Duran',
-  metadataBase: new URL('https://yourdomain.com'), // ← replace with your real domain
+  metadataBase: new URL('https://irvingduran.dev'), // ← replace with your real domain
   openGraph: {
     title: 'Irving Duran | Software Engineer & Creative Technologist',
     description:
       'Explore the creative and technical works of Irving Duran — software engineer and designer.',
-    url: 'https://yourdomain.com', // ← replace
+    url: 'https://irvingduran.dev', // ← replace
     siteName: 'Irving Duran Portfolio',
     images: [
       {
-        url: '/og-image.jpg', // optional: add this in public/
+        url: '/og-image.png', // optional: add this in public/
         width: 1200,
         height: 630,
         alt: 'Irving Duran Portfolio Screenshot',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'Irving Duran | Software Engineer & Creative Technologist',
     description:
       'Explore the creative and technical works of Irving Duran — software engineer and designer.',
-    images: ['/og-image.jpg'], // optional: same as above
+    images: ['/og-image.png'], // optional: same as above
     creator: '@yourTwitterHandle', // optional
   },
   icons: {

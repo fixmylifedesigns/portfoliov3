@@ -1,6 +1,7 @@
 import React from 'react';
 import { SOCIAL_LINKS, NAV_ITEMS } from '../../data/content';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -55,13 +56,21 @@ const Footer = () => {
               {NAV_ITEMS.map((item, index) => (
                 <li key={index}>
                   <a
-                    href={item.href}
+                    href={`http://localhost:3000/${item.href}`}
                     className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {item.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/articles"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  Articles
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -69,7 +78,7 @@ const Footer = () => {
           <div>
             <h3 className="text-white text-lg font-medium mb-4">Contact</h3>
             <p className="text-gray-400 mb-2">Brooklyn, NY</p>
-            <p className="text-gray-400 mb-4">contact@duranirving.com</p>
+            <p className="text-gray-400 mb-4">your.email@example.com</p>
             <a
               href="#contact"
               className="inline-block bg-cyan-500 hover:bg-cyan-600 text-black font-medium py-2 px-4 rounded-md transition-colors duration-300"
@@ -80,7 +89,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>© {currentYear} Irving Duran. All Rights Reserved.</p>
+          <p>© {currentYear} Your Name. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
