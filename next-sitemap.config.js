@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://yourdomain.com', // 🔁 Replace with your actual domain
-  generateRobotsTxt: true,           // ✅ Generate robots.txt automatically
+  siteUrl: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.irvingduran.dev',
+  generateRobotsTxt: true,           
   // Optional
   sitemapSize: 5000,
   changefreq: 'daily',
