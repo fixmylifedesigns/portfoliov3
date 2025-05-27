@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
 export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "1",
-    title: "Team Lead at Lambdaschool (internship)",
+    title: "Team Lead at Lambda School (internship)",
     description:
       "Graduated with honors from a prestigious university, specializing in artificial intelligence and machine learning.",
     date: "2019",
@@ -82,7 +82,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     id: "2",
-    title: "React Native Developer / Team Lead at Connectourkids.org",
+    title: "React Native Developer / Team Lead at Connect our kids",
     description:
       "Led a team of 5 developers to successfully deliver a major enterprise software solution that increased client productivity by 35%.",
     date: "2019",
