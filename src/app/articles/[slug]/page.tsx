@@ -1,7 +1,7 @@
 import { articles } from "@/data/articles";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import ArticleClient from "@/components/blog/ArticleClient";
+import ArticleClient from "@/components/articles/ArticleClient";
 
 interface Props {
   params: {

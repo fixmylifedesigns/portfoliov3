@@ -65,7 +65,7 @@ export default function ArticlesPage() {
               {filteredArticles.map((article) => (
                 <Link
                   key={article.id}
-                  href={`/blog/${article.urlName}`}
+                  href={`/articles/${article.urlName}`}
                   className="bg-gray-800/30 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
                 >
                   {article.mainImage && (
