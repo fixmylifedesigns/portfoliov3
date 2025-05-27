@@ -1,18 +1,18 @@
-import React from 'react';
-import { SOCIAL_LINKS, NAV_ITEMS } from '../../data/content';
-import { Github, Linkedin, Mail } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import { SOCIAL_LINKS, NAV_ITEMS } from "../../data/content";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const renderIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Github':
+      case "Github":
         return <Github size={20} />;
-      case 'Linkedin':
+      case "Linkedin":
         return <Linkedin size={20} />;
-      case 'Mail':
+      case "Mail":
         return <Mail size={20} />;
       default:
         return null;
@@ -26,12 +26,13 @@ const Footer = () => {
           {/* Brand & Description */}
           <div>
             <div className="text-xl font-bold mb-4">
-              <span className="font-mono">{'<'}</span>
+              <span className="font-mono">{"<"}</span>
               <span className="text-cyan-400">Portfolio</span>
-              <span className="font-mono">{' />'}</span>
+              <span className="font-mono">{" />"}</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Full Stack Engineer specializing in creating beautiful, functional, and user-friendly applications.
+              Full Stack Engineer specializing in creating beautiful,
+              functional, and user-friendly applications.
             </p>
             <div className="flex space-x-4">
               {SOCIAL_LINKS.map((link, index) => (
@@ -56,7 +57,7 @@ const Footer = () => {
               {NAV_ITEMS.map((item, index) => (
                 <li key={index}>
                   <a
-                    href={`http://localhost:3000/${item.href}`}
+                    href={process.env.NEXT_PUBLIC_BASE_URL + item.href}
                     className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {item.label}
