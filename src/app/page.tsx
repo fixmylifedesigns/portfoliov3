@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
-import Achievements from '@/components/sections/Achievements';
+import Experience from '@/components/sections/Experience';
 import Contact from '@/components/sections/Contact';
 import ElevenLabsAgent from "@/components/ElevenLabsAgent";
 
@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        <Achievements />
+        <Experience />
         <Contact />
         {process.env.NEXT_PUBLIC_ELEVEN_LABS && <ElevenLabsAgent />}
       </main>

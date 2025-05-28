@@ -1,4 +1,4 @@
-import { Project, Achievement, SocialLink } from "../types";
+import { Project, Experience, SocialLink } from "../types";
 import {
   Github,
   Linkedin,
@@ -12,7 +12,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -71,37 +71,53 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const ACHIEVEMENTS: Achievement[] = [
+export const EXPERIENCE: Experience[] = [
   {
     id: "1",
-    title: "Team Lead at Lambda School (internship)",
+    title: "Team Lead (Intern) at Lambda School",
     description:
-      "Graduated with honors from a prestigious university, specializing in artificial intelligence and machine learning.",
+      "Mentored a 5-person cohort through its capstone (React + Node).",
     date: "2019",
     icon: "Briefcase",
   },
   {
     id: "2",
-    title: "React Native Developer / Team Lead at Connect our kids",
+    title: "React Native Team Lead at Connect Our Kids (Beta)",
     description:
-      "Led a team of 5 developers to successfully deliver a major enterprise software solution that increased client productivity by 35%.",
+      "Guided 5 engineers to ship the first TestFlight build of a child-welfare case-management app.",
     date: "2019",
     icon: "Briefcase",
   },
   {
     id: "3",
-    title: "Software Engineer III at American Express",
+    title: "Software Engineer III · American Express — Business Banking",
     description:
-      "Contributed towards the historic launch of the American Express Buisiness Banking Platform",
-    date: "2020",
+      "Core contributor to the historic launch of **Amex Business Checking**. Built the React micro-front-end for customer onboarding.",
+    date: "2020 – 2021",
     icon: "Briefcase",
   },
-    {
+  {
     id: "4",
-    title: "Software Engineer II at American Express",
+    title: "Software Engineer II · American Express – Business Blueprint",
     description:
-      "Recognized for developing a groundbreaking algorithm that reduced processing time by 50% while maintaining accuracy.",
-    date: "2022",
+      "Migrated Kabbage micro-front-ends and built new account-management UI for Business Blueprint, cutting UI regressions 30 %.",
+    date: "2022 – 2023",
+    icon: "Briefcase",
+  },
+  {
+    id: "5",
+    title: "Freelance Full-Stack Developer",
+    description:
+      "Builds React / Next.js & Node apps for clients—most notably a Stripe-powered platform. Automates CI/CD with GitHub Actions + Vercel.",
+    date: "2023",
+    icon: "Briefcase",
+  },
+  {
+    id: "6",
+    title: "Software Engineer (Contract) · Match Hat",
+    description:
+      "Works alongside three other engineers at a fast-moving startup, independently designing and shipping features.",
+    date: "2024 – Present",
     icon: "Briefcase",
   },
 ];

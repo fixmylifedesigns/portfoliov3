@@ -19,7 +19,7 @@ export interface Project {
   githubUrl?: string;
 }
 
-export interface Achievement {
+export interface Experience {
   id: string;
   title: string;
   description: string;
