@@ -1,4 +1,4 @@
-import ArticleHeader from "@/components/layout/ArticleHeader";
+import CustomHeader from "@/components/layout/CustomHeader";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
@@ -6,17 +6,13 @@ export const metadata = {
   description:
     "Explore our articles about VPN security, remote work, and technology guides.",
   images: "/og-article.png",
-   url: "https://www.irvingduran.dev/articles",
+  url: "https://www.irvingduran.dev/articles",
 };
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-black">
-      <ArticleHeader />
+      <CustomHeader name={"Articles"} />
       <div className="pt-20">{children}</div>
       <Footer />
     </div>

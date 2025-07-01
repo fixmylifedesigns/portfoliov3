@@ -1,9 +1,9 @@
 /* app/muay-thai/page.tsx  (Next 13/14)  */
 "use client";
 import { useRef } from "react";
-import { TikTokEmbed, InstagramEmbed } from "react-social-media-embed";
-import TikTokProfile from "@/components/TikTokProfile";
 import Image from "next/image";
+import SocialStatsCard from "@/components/SocialStatsCard";
+import LazyYouTubeShort from "@/components/LazyYouTubeShort";
 
 export default function MuayThaiPage() {
   /* refs let us scroll smoothly on sidebar click */
@@ -14,63 +14,63 @@ export default function MuayThaiPage() {
   const contentRef = useRef<HTMLDivElement>(null);
   const videos = [
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7349184459134012678",
+      url: "https://youtube.com/shorts/K1zZTQSVn_A",
       title: "Training Highlights",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7344262961499835654",
+      url: "https://youtube.com/shorts/ugrtTvWtxqU",
       title: "Shadowboxing - Vietnam",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7323373400888462598",
+      url: "https://youtube.com/shorts/ZLHjV_gT-fg",
       title: "Drone Footage - Khunsuek",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7287237681254354181",
+      url: "https://youtube.com/shorts/0GaFZzNipXc",
       title: "Moving to Thailand 2023",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7290391345867394309",
-      title: "First Traing in Thailand",
+      url: "https://youtube.com/shorts/VI3QL9GWapI",
+      title: "First Training in Thailand",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7302225528751230213",
+      url: "https://youtube.com/shorts/BWeAgtPGS6M",
       title: "Life in Bangtao",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7309454008312171782",
+      url: "https://youtube.com/shorts/5CKhfv4iGzM",
       title: "Content in Sinbi",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7389069908933446917",
+      url: "https://youtube.com/shorts/ng2kdiJQg2E",
       title: "Back in Krabi",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7333205871104658693",
+      url: "https://youtube.com/shorts/mEMfHAZJuCI",
       title: "Emerald Muay Thai",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7334044214314994949",
+      url: "https://youtube.com/shorts/aI3YE1LbiCk",
       title: "Eagle Muay Thai",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7332354952636960006",
+      url: "https://youtube.com/shorts/lpyLYNFIe3E",
       title: "Khunsuek Muay Thai",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7329973171816254725",
+      url: "https://youtube.com/shorts/aJ2sGBIak3Y",
       title: "Friendly Sparring - Khunsuek",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7358115863834135813",
+      url: "https://youtube.com/shorts/pl0bIw-a5r8",
       title: "Superbon Muay Thai",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7374246311031344390",
+      url: "https://youtube.com/shorts/56h9qnRRQL0",
       title: "Wizard Kickboxing",
     },
     {
-      url: "https://www.tiktok.com/@fixmylifenyc/video/7498574346311535879",
+      url: "https://youtube.com/shorts/GBU6gyqChhw",
       title: "Back in NYC",
     },
   ];
@@ -163,42 +163,51 @@ export default function MuayThaiPage() {
           <section
             ref={aboutMeRef}
             id="about-me"
-            className="bg-gradient-to-b from-gray-900 to-black py-20"
+            className="bg-gradient-to-b from-gray-900 to-black pt-20"
           >
-            <div className="container mx-auto px-6 flex flex-col gap-12">
+            <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+              {/* Avatar — left on desktop, top on mobile */}
+              <div className="flex-shrink-0 order-first md:order-none mb-8 md:mb-0">
+                <Image
+                  src="/images/3d.png"
+                  alt="Irving — Muay Thai digital-nomad avatar"
+                  width={260}
+                  height={390}
+                  className="w-40 md:w-64 mx-auto"
+                  priority
+                />
+              </div>
               {/* Heading and bio */}
               {/* <div className="max-w-3xl mx-auto text-center space-y-6"> */}
-                <h1 className="text-4xl font-bold text-white">About Me</h1>
-                <p className="text-gray-300 leading-relaxed">
-                  I am a full-stack engineer by trade and a storyteller by
-                  passion. When I am not shipping code you will find me filming
-                  sunrise streets in Kyoto, jotting kanji flashcards at a café,
-                  or hammering elbows and kicks at a humid gym in Chiang Mai. My
-                  channels document the wins and stumbles of learning languages,
-                  living out of one backpack, and chasing Muay Thai across
-                  Southeast Asia. If you are into travel tips, digital nomad
-                  hacks, and the grind of building a border-free career, you are
-                  in the right place.
-                </p>
-              {/* </div> */}
-
-              {/* Social embeds */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {/* TikTok profile */}
-                <div className="w-full">
-                  {/* Replace with your actual TikTok handle */}
-                  {/* <TikTokProfile username="fixmylifenyc" /> */}
-                </div>
-
-                {/* Instagram profile */}
-                <div className="w-full">
-                  {/* Replace with your actual Instagram post URL or profile URL */}
-                
+              <div className="flex-1 space-y-10">
+                {/* Intro copy */}
+                <div className="text-center md:text-left space-y-6 max-w-3xl mx-auto md:mx-0">
+                  <h1 className="text-4xl font-bold text-white">About Me</h1>
+                  <p className="text-gray-300 leading-relaxed">
+                    I’m a former bike messenger turned software engineer—and, as
+                    any New York native will tell you, wearing a dozen hats is
+                    the only way to survive here. Outside of code my real
+                    passion is creating content and helping others grow. When I
+                    lost my job in 2023 I moved to Thailand to train Muay Thai
+                    full-time, then headed to Japan to study Japanese (training
+                    lagged a bit—tattoo-friendly gyms were a long commute). I’m
+                    back in NYC now, job-hunting for my next engineering role,
+                    and open to part-time gigs that tap the skills I’ve honed
+                    along the way—from social-media marketing to full-stack
+                    builds and video production.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
-          <section ref={experienceRef} id="experience">
+          <SocialStatsCard
+            avatarSrc="/portrait.jpg" // same PNG you already saved
+            tiktokFollowers="28k"
+            instagramFollowers="23k"
+            tiktokUrl="https://www.tiktok.com/@fixmylifenyc"
+            instagramUrl="https://www.instagram.com/fixmylifenyc/"
+          />
+          <section ref={experienceRef} id="experience" className="">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Muay Thai Experience
             </h1>
@@ -219,7 +228,7 @@ export default function MuayThaiPage() {
           </section>
 
           {/* 2. Fitness Goals */}
-          <section ref={goalsRef} id="fitness-goals">
+          <section ref={goalsRef} id="fitness-goals" className="pt-20">
             <h2 className="text-3xl font-bold text-white mb-4">
               Current Fitness Goals
             </h2>
@@ -229,15 +238,17 @@ export default function MuayThaiPage() {
             </p>
 
             <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li>Drop down to 80kg and do my first fight.</li>
-              <li>Run 5 km under 22 minutes.</li>
-              <li>Land 300 kicks per session for hip mobility.</li>
+              <li>Drop down to 80kg.</li>
+              <li>
+                Ride 100 miles on a bicycle. Max miles done 120 miles in 2014.
+              </li>
+              <li>Do my first fight. Ideally in Thailand</li>
               <li>Spar twice a week focusing on clinch dominance.</li>
             </ul>
           </section>
 
           {/* 3. Gyms Trained In */}
-          <section ref={gymsRef} id="gyms">
+          <section ref={gymsRef} id="gyms" className="pt-20">
             <h2 className="text-3xl font-bold text-white mb-4">
               Gyms Trained In
             </h2>
@@ -266,7 +277,7 @@ export default function MuayThaiPage() {
           </section>
 
           {/* 4. Content Created */}
-          <section ref={contentRef} id="content">
+          <section ref={contentRef} id="content" className="pt-20">
             <h2 className="text-3xl font-bold text-white mb-4">
               Content Created While Training
             </h2>
@@ -277,12 +288,15 @@ export default function MuayThaiPage() {
             </p>
             {/* TikTok embed – substitute your real link */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {videos.map(({ url, title }) => (
+              {videos.map((v) => (
+                <LazyYouTubeShort key={v.url} url={v.url} title={v.title} />
+              ))}
+              {/* {videos.map(({ url, title }) => (
                 <div key={url} className="w-full space-y-2">
                   <h3 className="text-lg font-semibold text-white">{title}</h3>
                   <TikTokEmbed url={url} width="100%" height={560} />
                 </div>
-              ))}
+              ))} */}
             </div>
           </section>
         </main>
