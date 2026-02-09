@@ -17,7 +17,7 @@ export default function Home() {
         <Projects />
         <Experience />
         <Contact />
-        {process.env.NEXT_PUBLIC_ELEVEN_LABS && <ElevenLabsAgent />}
+        {/* {process.env.NEXT_PUBLIC_ELEVEN_LABS && <ElevenLabsAgent />} */}
       </main>
       <Footer />
     </div>
