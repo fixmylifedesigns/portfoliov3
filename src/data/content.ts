@@ -120,6 +120,14 @@ export const EXPERIENCE: Experience[] = [
     date: "2024 – Present",
     icon: "Briefcase",
   },
+  {
+    id: "7",
+    title: "Senior Software Engineer IV · RecycleTek",
+    description:
+      "Full-stack engineer building and scaling recycling and sustainability platforms. Works across React frontends and Python/Flask backends, designing APIs, data models, and production features used by enterprise and municipal partners.",
+    date: "Aug 2025 – Present",
+    icon: "Briefcase",
+  },
 ];
 
 export const ABOUT_ME = {
